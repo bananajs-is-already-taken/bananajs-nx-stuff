@@ -1,6 +1,8 @@
 <p align="center"><img src="https://raw.githubusercontent.com/bennymeg/nx-electron/master/nx-electron.png" width="240"></p>
 
 <div align="center">
+  
+# Originally made by [bennymeg](https://github.com/bennymeg).
 
 # Nx Electron
 
