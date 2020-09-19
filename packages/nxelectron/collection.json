@@ -1,12 +1,26 @@
 {
-  "$schema": "../../node_modules/@angular-devkit/schematics/collection-schema.json",
   "name": "nxelectron",
-  "version": "0.0.1",
+  "version": "0.1",
+  "extends": [
+    "@nrwl/workspace"
+  ],
   "schematics": {
-    "nxelectron": {
-      "factory": "./src/schematics/nxelectron/schematic",
-      "schema": "./src/schematics/nxelectron/schema.json",
-      "description": "nxelectron schematic"
+    "init": {
+      "factory": "./src/schematics/init/init",
+      "schema": "./src/schematics/init/schema.json",
+      "description": "Initialize the @bananajs-nx-stuff/nxelectron plugin",
+      "aliases": [
+        "ng-add"
+      ],
+      "hidden": true
+    },
+    "application": {
+      "factory": "./src/schematics/application/application",
+      "schema": "./src/schematics/application/schema.json",
+      "aliases": [
+        "app"
+      ],
+      "description": "Create an electron application"
     }
   }
 }

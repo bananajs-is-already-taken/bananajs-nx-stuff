@@ -1,5 +1,5 @@
 {
-  "npmScope": "stract2-libs",
+  "npmScope": "bananajs-nx-stuff",
   "affected": {
     "defaultBase": "master"
   },
@@ -17,7 +17,12 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
       }
     }
   },
@@ -27,7 +32,18 @@
     },
     "nxelectron-e2e": {
       "tags": [],
-      "implicitDependencies": ["nxelectron"]
+      "implicitDependencies": [
+        "nxelectron"
+      ]
+    },
+    "nxvue": {
+      "tags": []
+    },
+    "nxvue-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "nxvue"
+      ]
     }
   },
   "workspaceLayout": {

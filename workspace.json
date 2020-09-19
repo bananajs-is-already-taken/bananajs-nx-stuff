@@ -15,7 +15,10 @@
               "packages/nxelectron/tsconfig.lib.json",
               "packages/nxelectron/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!packages/nxelectron/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!packages/nxelectron/**/*"
+            ]
           }
         },
         "test": {
@@ -48,6 +51,11 @@
                 "input": "./packages/nxelectron",
                 "glob": "builders.json",
                 "output": "."
+              },
+              {
+                "input": "./packages/nxelectron",
+                "glob": "migrations.json",
+                "output": "."
               }
             ]
           }
@@ -63,9 +71,91 @@
           "builder": "@nrwl/nx-plugin:e2e",
           "options": {
             "target": "nxelectron:build",
-            "npmPackageName": "@stract2-libs/nxelectron",
+            "npmPackageName": "@bananajs-nx-stuff/nxelectron",
             "pluginOutputPath": "dist/packages/nxelectron",
             "jestConfig": "e2e/nxelectron-e2e/jest.config.js"
+          }
+        }
+      }
+    },
+    "nxvue": {
+      "root": "packages/nxvue",
+      "sourceRoot": "packages/nxvue/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "packages/nxvue/tsconfig.lib.json",
+              "packages/nxvue/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!packages/nxvue/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "packages/nxvue/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/packages/nxvue",
+            "tsConfig": "packages/nxvue/tsconfig.lib.json",
+            "packageJson": "packages/nxvue/package.json",
+            "main": "packages/nxvue/src/index.ts",
+            "assets": [
+              "packages/nxvue/*.md",
+              {
+                "input": "./packages/nxvue/src",
+                "glob": "**/*.!(ts)",
+                "output": "./src"
+              },
+              {
+                "input": "./packages/nxvue",
+                "glob": "collection.json",
+                "output": "."
+              },
+              {
+                "input": "./packages/nxvue",
+                "glob": "builders.json",
+                "output": "."
+              },
+              {
+                "input": "./packages/nxvue",
+                "glob": "patch-nx-dep-graph.js",
+                "output": "."
+              },
+              {
+                "input": "./packages/nxvue",
+                "glob": "migrations.json",
+                "output": "."
+              }
+            ]
+          }
+        }
+      }
+    },
+    "nxvue-e2e": {
+      "projectType": "application",
+      "root": "e2e/nxvue-e2e",
+      "sourceRoot": "e2e/nxvue-e2e/src",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/nx-plugin:e2e",
+          "options": {
+            "target": "nxvue:build",
+            "npmPackageName": "@bananajs-nx-stuff/nxvue",
+            "pluginOutputPath": "dist/packages/nxvue",
+            "jestConfig": "e2e/nxvue-e2e/jest.config.js"
           }
         }
       }
