@@ -8,10 +8,8 @@ import {
 describe('nxvue e2e', () => {
   it('should create nxvue', async (done) => {
     const plugin = uniq('nxvue');
-    ensureNxProject('@bananajs-nx-stuff/nxvue', 'dist/packages/nxvue');
-    await runNxCommandAsync(
-      `generate @bananajs-nx-stuff/nxvue:nxvue ${plugin}`
-    );
+    ensureNxProject('@bananajs/nxvue', 'dist/packages/nxvue');
+    await runNxCommandAsync(`generate @bananajs/nxvue:nxvue ${plugin}`);
 
     const result = await runNxCommandAsync(`build ${plugin}`);
     expect(result.stdout).toContain('Builder ran');
@@ -22,9 +20,9 @@ describe('nxvue e2e', () => {
   describe('--directory', () => {
     it('should create src in the specified directory', async (done) => {
       const plugin = uniq('nxvue');
-      ensureNxProject('@bananajs-nx-stuff/nxvue', 'dist/packages/nxvue');
+      ensureNxProject('@bananajs/nxvue', 'dist/packages/nxvue');
       await runNxCommandAsync(
-        `generate @bananajs-nx-stuff/nxvue:nxvue ${plugin} --directory subdir`
+        `generate @bananajs/nxvue:nxvue ${plugin} --directory subdir`
       );
       expect(() =>
         checkFilesExist(`libs/subdir/${plugin}/src/index.ts`)
@@ -36,9 +34,9 @@ describe('nxvue e2e', () => {
   describe('--tags', () => {
     it('should add tags to nx.json', async (done) => {
       const plugin = uniq('nxvue');
-      ensureNxProject('@bananajs-nx-stuff/nxvue', 'dist/packages/nxvue');
+      ensureNxProject('@bananajs/nxvue', 'dist/packages/nxvue');
       await runNxCommandAsync(
-        `generate @bananajs-nx-stuff/nxvue:nxvue ${plugin} --tags e2etag,e2ePackage`
+        `generate @bananajs/nxvue:nxvue ${plugin} --tags e2etag,e2ePackage`
       );
       const nxJson = readJson('nx.json');
       expect(nxJson.projects[plugin].tags).toEqual(['e2etag', 'e2ePackage']);

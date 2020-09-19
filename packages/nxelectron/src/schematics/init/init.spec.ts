@@ -14,12 +14,8 @@ describe('init', () => {
   it('should add dependencies', async () => {
     const result = await runSchematic('init', {}, tree);
     const packageJson = readJsonInTree(result, 'package.json');
-    expect(
-      packageJson.dependencies['@bananajs-nx-stuff/nxelectron']
-    ).toBeUndefined();
-    expect(
-      packageJson.devDependencies['@bananajs-nx-stuff/nxelectron']
-    ).toBeDefined();
+    expect(packageJson.dependencies['@bananajs/nxelectron']).toBeUndefined();
+    expect(packageJson.devDependencies['@bananajs/nxelectron']).toBeDefined();
   });
 
   describe('defaultCollection', () => {
@@ -27,7 +23,7 @@ describe('init', () => {
       const result = await runSchematic('init', {}, tree);
       const workspaceJson = readJsonInTree(result, 'workspace.json');
       expect(workspaceJson.cli.defaultCollection).toEqual(
-        '@bananajs-nx-stuff/nxelectron'
+        '@bananajs/nxelectron'
       );
     });
 
@@ -45,7 +41,7 @@ describe('init', () => {
       const result = await runSchematic('init', {}, tree);
       const workspaceJson = readJsonInTree(result, 'workspace.json');
       expect(workspaceJson.cli.defaultCollection).toEqual(
-        '@bananajs-nx-stuff/nxelectron'
+        '@bananajs/nxelectron'
       );
     });
 

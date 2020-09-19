@@ -71,7 +71,7 @@
           "builder": "@nrwl/nx-plugin:e2e",
           "options": {
             "target": "nxelectron:build",
-            "npmPackageName": "@bananajs-nx-stuff/nxelectron",
+            "npmPackageName": "@bananajs/nxelectron",
             "pluginOutputPath": "dist/packages/nxelectron",
             "jestConfig": "e2e/nxelectron-e2e/jest.config.js"
           }
@@ -153,7 +153,7 @@
           "builder": "@nrwl/nx-plugin:e2e",
           "options": {
             "target": "nxvue:build",
-            "npmPackageName": "@bananajs-nx-stuff/nxvue",
+            "npmPackageName": "@bananajs/nxvue",
             "pluginOutputPath": "dist/packages/nxvue",
             "jestConfig": "e2e/nxvue-e2e/jest.config.js"
           }

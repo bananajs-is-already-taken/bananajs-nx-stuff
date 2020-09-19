@@ -219,7 +219,7 @@ function addEsLint(options: NormalizedSchema): Rule {
 function addPostInstall() {
   return updateJsonInTree('package.json', (json, context) => {
     const vuePostInstall =
-      'node node_modules/@bananajs-nx-stuff/nxvue/patch-nx-dep-graph.js';
+      'node node_modules/@bananajs/nxvue/patch-nx-dep-graph.js';
     const { postinstall } = json.scripts || {};
     if (postinstall) {
       if (postinstall !== vuePostInstall) {
@@ -241,7 +241,7 @@ function addPublishable(options: NormalizedSchema) {
     updateWorkspace((workspace) => {
       workspace.projects.get(options.projectName).targets.add({
         name: 'build',
-        builder: '@bananajs-nx-stuff/nxvue:library',
+        builder: '@bananajs/nxvue:library',
         options: {
           dest: `dist/${options.projectRoot}`,
           entry: `${options.projectRoot}/src/index.ts`,

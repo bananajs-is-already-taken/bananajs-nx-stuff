@@ -23,7 +23,7 @@ function addDependencies(): Rule {
   return addDepsToPackageJson(
     {},
     {
-      '@bananajs-nx-stuff/nxelectron': nxElectronVersion,
+      '@bananajs/nxelectron': nxElectronVersion,
       electron: electronVersion,
       exitzero: exitZeroVersion,
       // 'electron-packager': electronPackagerVersion,
@@ -39,7 +39,7 @@ function moveDependency(): Rule {
   return updateJsonInTree('package.json', (json) => {
     json.dependencies = json.dependencies || {};
 
-    delete json.dependencies['@bananajs-nx-stuff/nxelectron'];
+    delete json.dependencies['@bananajs/nxelectron'];
     delete json.dependencies['electron'];
     // delete json.dependencies['electron-packager'];
     // delete json.dependencies['electron-builder'];
@@ -73,7 +73,7 @@ function setDefault(): Rule {
 
     if (!defaultCollection || defaultCollection === '@nrwl/workspace') {
       (workspace.extensions.cli as JsonObject).defaultCollection =
-        '@bananajs-nx-stuff/nxelectron';
+        '@bananajs/nxelectron';
     }
   });
 }

@@ -12,7 +12,7 @@ describe('vuex schematic', () => {
   const options: VuexSchematicSchema = { project: 'my-app', skipFormat: false };
 
   const testRunner = new SchematicTestRunner(
-    '@bananajs-nx-stuff/nxvue',
+    '@bananajs/nxvue',
     join(__dirname, '../../../collection.json')
   );
 

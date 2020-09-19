@@ -71,7 +71,7 @@ describe('ElectronBuildBuilder', () => {
   describe('run', () => {
     it('should call runWebpack', async () => {
       const run = await architect.scheduleBuilder(
-        '@bananajs-nx-stuff/nxelectron:build',
+        '@bananajs/nxelectron:build',
         testOptions
       );
       await run.output.toPromise();
@@ -83,7 +83,7 @@ describe('ElectronBuildBuilder', () => {
 
     it('should emit the outfile along with success', async () => {
       const run = await architect.scheduleBuilder(
-        '@bananajs-nx-stuff/nxelectron:build',
+        '@bananajs/nxelectron:build',
         testOptions
       );
       const output = await run.output.toPromise();
@@ -121,7 +121,7 @@ describe('ElectronBuildBuilder', () => {
         );
         testOptions.webpackConfig = 'apps/electron-app/webpack.config.js';
         const run = await architect.scheduleBuilder(
-          '@bananajs-nx-stuff/nxelectron:build',
+          '@bananajs/nxelectron:build',
           testOptions
         );
         await run.output.toPromise();

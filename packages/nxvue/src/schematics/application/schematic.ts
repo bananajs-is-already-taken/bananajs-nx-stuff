@@ -256,7 +256,7 @@ function addCypress(options: NormalizedSchema): Rule {
 function addPostInstall() {
   return updateJsonInTree('package.json', (json, context) => {
     const vuePostInstall =
-      'node node_modules/@bananajs-nx-stuff/nxvue/patch-nx-dep-graph.js';
+      'node node_modules/@bananajs/nxvue/patch-nx-dep-graph.js';
     const { postinstall } = json.scripts || {};
     if (postinstall) {
       if (postinstall !== vuePostInstall) {
@@ -285,7 +285,7 @@ export default function (options: ApplicationSchematicSchema): Rule {
       });
       targets.add({
         name: 'build',
-        builder: '@bananajs-nx-stuff/nxvue:browser',
+        builder: '@bananajs/nxvue:browser',
         options: {
           dest: `dist/${normalizedOptions.projectRoot}`,
           index: `${normalizedOptions.projectRoot}/public/index.html`,
@@ -306,7 +306,7 @@ export default function (options: ApplicationSchematicSchema): Rule {
       });
       targets.add({
         name: 'serve',
-        builder: '@bananajs-nx-stuff/nxvue:dev-server',
+        builder: '@bananajs/nxvue:dev-server',
         options: {
           browserTarget: `${normalizedOptions.projectName}:build`,
         },

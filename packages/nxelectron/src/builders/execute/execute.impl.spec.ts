@@ -35,7 +35,7 @@ describe('ElectronExecuteBuilder', () => {
         project: 'electronapp',
         target: 'build',
       },
-      '@bananajs-nx-stuff/nxelectron:build'
+      '@bananajs/nxelectron:build'
     );
     testOptions = {
       inspect: true,

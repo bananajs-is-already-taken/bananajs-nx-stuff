@@ -1,5 +1,5 @@
 {
-  "npmScope": "bananajs-nx-stuff",
+  "npmScope": "bananajs",
   "affected": {
     "defaultBase": "master"
   },

@@ -26,7 +26,7 @@ describe('PackageElectronBuilder', () => {
 
     // it('should emit the outfile along with success', async () => {
     //   const run = await architect.scheduleBuilder(
-    //     '@bananajs-nx-stuff/nxelectron:package',
+    //     '@bananajs/nxelectron:package',
     //     testOptions
     //   );
     //   const output = await run.output.toPromise();

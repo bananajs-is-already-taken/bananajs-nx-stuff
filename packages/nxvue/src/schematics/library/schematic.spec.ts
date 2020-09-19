@@ -16,7 +16,7 @@ describe('library schematic', () => {
   };
 
   const testRunner = new SchematicTestRunner(
-    '@bananajs-nx-stuff/nxvue',
+    '@bananajs/nxvue',
     join(__dirname, '../../../collection.json')
   );
 
@@ -97,7 +97,7 @@ describe('library schematic', () => {
       const workspaceJson = readJsonInTree(tree, 'workspace.json');
       const { build } = workspaceJson.projects['my-lib'].architect;
 
-      expect(build.builder).toBe('@bananajs-nx-stuff/nxvue:library');
+      expect(build.builder).toBe('@bananajs/nxvue:library');
       expect(build.options).toEqual({
         dest: `dist/libs/my-lib`,
         entry: `libs/my-lib/src/index.ts`,

@@ -26,7 +26,7 @@ describe('app', () => {
       expect(project.architect).toEqual(
         jasmine.objectContaining({
           build: {
-            builder: '@bananajs-nx-stuff/nxelectron:build',
+            builder: '@bananajs/nxelectron:build',
             options: {
               outputPath: 'dist/apps/my-electron-app',
               main: 'apps/my-electron-app/src/main.ts',
@@ -50,7 +50,7 @@ describe('app', () => {
             },
           },
           serve: {
-            builder: '@bananajs-nx-stuff/nxelectron:execute',
+            builder: '@bananajs/nxelectron:execute',
             options: {
               buildTarget: 'my-electron-app:build',
             },

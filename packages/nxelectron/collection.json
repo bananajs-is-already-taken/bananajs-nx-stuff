@@ -8,7 +8,7 @@
     "init": {
       "factory": "./src/schematics/init/init",
       "schema": "./src/schematics/init/schema.json",
-      "description": "Initialize the @bananajs-nx-stuff/nxelectron plugin",
+      "description": "Initialize the @bananajs/nxelectron plugin",
       "aliases": [
         "ng-add"
       ],

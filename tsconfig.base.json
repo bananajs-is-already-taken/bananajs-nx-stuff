@@ -17,8 +17,8 @@
     "baseUrl": ".",
     "esModuleInterop": true,
     "paths": {
-      "bananajs-nx-stuff/nxelectron": ["packages/nxelectron/src/index.ts"],
-      "bananajs-nx-stuff/nxvue": ["packages/nxvue/src/index.ts"]
+      "bananajs/nxelectron": ["packages/nxelectron/src/index.ts"],
+      "bananajs/nxvue": ["packages/nxvue/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

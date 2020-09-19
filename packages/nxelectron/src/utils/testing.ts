@@ -8,7 +8,7 @@ import { TestingArchitectHost } from '@angular-devkit/architect/testing';
 import { MockBuilderContext } from '@nrwl/workspace/testing';
 
 const testRunner = new SchematicTestRunner(
-  '@bananajs-nx-stuff/nxelectron',
+  '@bananajs/nxelectron',
   join(__dirname, '../../collection.json')
 );
 

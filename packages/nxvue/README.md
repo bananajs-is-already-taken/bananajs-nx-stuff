@@ -32,16 +32,16 @@ When creating your Nx workspace you may be prompted to choose a preset, **we do 
 
 ```
 # npm
-npm install @bananajs-nx-stuff/nxvue --save-dev
+npm install @bananajs/nxvue --save-dev
 
 # yarn
-yarn add @bananajs-nx-stuff/nxvue --dev
+yarn add @bananajs/nxvue --dev
 ```
 
 ### Generate Your App
 
 ```
-nx g @bananajs-nx-stuff/nxvue:app my-app
+nx g @bananajs/nxvue:app my-app
 ```
 
 ### Serve Your App
@@ -55,7 +55,7 @@ nx serve my-app
 **Nx's dep-graph does not support `.vue` files.** To patch support for `.vue` files, add the following npm script to your `package.json`:
 
 ```
-"postinstall": "node node_modules/@bananajs-nx-stuff/nxvue/patch-nx-dep-graph.js"
+"postinstall": "node node_modules/@bananajs/nxvue/patch-nx-dep-graph.js"
 ```
 
 **Help us!** We dislike this hack just as much as you do. Please give this Nx [issue](https://github.com/nrwl/nx/issues/2960) a 👍 so that we can remove this hack in the future.
@@ -64,7 +64,7 @@ nx serve my-app
 
 ### Application
 
-`nx g @bananajs-nx-stuff/nxvue:app <name> [options]`
+`nx g @bananajs/nxvue:app <name> [options]`
 
 | Arguments | Description           |
 | --------- | --------------------- |
@@ -82,7 +82,7 @@ nx serve my-app
 
 ### Vuex
 
-`nx g @bananajs-nx-stuff/nxvue:vuex <project> [options]`
+`nx g @bananajs/nxvue:vuex <project> [options]`
 
 | Arguments   | Description                                            |
 | ----------- | ------------------------------------------------------ |
@@ -94,7 +94,7 @@ nx serve my-app
 
 ### Library
 
-`nx g @bananajs-nx-stuff/nxvue:lib <name> [options]`
+`nx g @bananajs/nxvue:lib <name> [options]`
 
 | Arguments | Description               |
 | --------- | ------------------------- |
@@ -240,11 +240,11 @@ We recommend waiting for Nx Plus Vue to update these dependencies for you as we 
 All you have to do to update Nx Plus Vue to the latest version is run the following:
 
 ```
-nx migrate @bananajs-nx-stuff/nxvue
-nx migrate @bananajs-nx-stuff/nxvue@version # you can also specify version
+nx migrate @bananajs/nxvue
+nx migrate @bananajs/nxvue@version # you can also specify version
 ```
 
-This will fetch the specified version of `@bananajs-nx-stuff/nxvue`, analyze the dependencies and fetch all the dependent packages. The process will keep going until the whole tree of dependencies is resolved. This will result in:
+This will fetch the specified version of `@bananajs/nxvue`, analyze the dependencies and fetch all the dependent packages. The process will keep going until the whole tree of dependencies is resolved. This will result in:
 
 - `package.json` being updated
 - `migrations.json` being generated

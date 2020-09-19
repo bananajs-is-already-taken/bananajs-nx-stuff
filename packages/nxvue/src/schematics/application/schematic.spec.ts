@@ -18,7 +18,7 @@ describe('application schematic', () => {
   };
 
   const testRunner = new SchematicTestRunner(
-    '@bananajs-nx-stuff/nxvue',
+    '@bananajs/nxvue',
     join(__dirname, '../../../collection.json')
   );
 
@@ -37,7 +37,7 @@ describe('application schematic', () => {
 
     expect(workspaceJson.projects['my-app'].root).toBe('apps/my-app');
     expect(workspaceJson.projects['my-app'].sourceRoot).toBe('apps/my-app/src');
-    expect(build.builder).toBe('@bananajs-nx-stuff/nxvue:browser');
+    expect(build.builder).toBe('@bananajs/nxvue:browser');
     expect(build.options).toEqual({
       dest: 'dist/apps/my-app',
       index: 'apps/my-app/public/index.html',
@@ -53,7 +53,7 @@ describe('application schematic', () => {
         sourceMap: false,
       },
     });
-    expect(serve.builder).toBe('@bananajs-nx-stuff/nxvue:dev-server');
+    expect(serve.builder).toBe('@bananajs/nxvue:dev-server');
     expect(serve.options).toEqual({
       browserTarget: 'my-app:build',
     });
@@ -159,7 +159,7 @@ describe('application schematic', () => {
       .toPromise();
 
     expect(readJsonInTree(tree, 'package.json').scripts.postinstall).toBe(
-      'node node_modules/@bananajs-nx-stuff/nxvue/patch-nx-dep-graph.js'
+      'node node_modules/@bananajs/nxvue/patch-nx-dep-graph.js'
     );
   });
 

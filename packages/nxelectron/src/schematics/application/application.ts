@@ -47,7 +47,7 @@ function updateNxJson(options: NormalizedSchema): Rule {
 
 function getBuildConfig(project: any, options: NormalizedSchema) {
   return {
-    builder: '@bananajs-nx-stuff/nxelectron:build',
+    builder: '@bananajs/nxelectron:build',
     options: {
       outputPath: join(normalize('dist'), options.appProjectRoot),
       main: join(project.sourceRoot, 'main.ts'),
@@ -72,7 +72,7 @@ function getBuildConfig(project: any, options: NormalizedSchema) {
 
 function getServeConfig(options: NormalizedSchema) {
   return {
-    builder: '@bananajs-nx-stuff/nxelectron:execute',
+    builder: '@bananajs/nxelectron:execute',
     options: {
       buildTarget: `${options.name}:build`,
     },
@@ -81,7 +81,7 @@ function getServeConfig(options: NormalizedSchema) {
 
 function getPackageConfig(options: NormalizedSchema) {
   return {
-    builder: '@bananajs-nx-stuff/nxelectron:package',
+    builder: '@bananajs/nxelectron:package',
     options: {
       name: options.name,
       frontendProject: options.frontendProject,
@@ -92,7 +92,7 @@ function getPackageConfig(options: NormalizedSchema) {
 
 function getMakeConfig(options: NormalizedSchema) {
   return {
-    builder: '@bananajs-nx-stuff/nxelectron:make',
+    builder: '@bananajs/nxelectron:make',
     options: {
       name: options.name,
       frontendProject: options.frontendProject,
