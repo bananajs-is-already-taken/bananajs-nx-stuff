@@ -43,6 +43,8 @@ function updateJestConfig(projectRoot: string) {
 
 function updateTestConfigs(projectRoot: string) {
   return chain([
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     updateJsonInTree(projectRoot + '/tsconfig.spec.json', (json) => {
       json.compilerOptions = {
         ...json.compilerOptions,

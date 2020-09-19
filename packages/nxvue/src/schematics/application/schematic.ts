@@ -124,6 +124,8 @@ function getEslintConfig(options: NormalizedSchema) {
 
 function addEsLint(options: NormalizedSchema): Rule {
   return chain([
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     updateWorkspace((workspace) => {
       const { targets } = workspace.projects.get(options.projectName);
       targets.add({
@@ -135,11 +137,15 @@ function addEsLint(options: NormalizedSchema): Rule {
         ),
       });
     }),
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     addLintFiles(options.projectRoot, Linter.EsLint, {
       localConfig: getEslintConfig(options),
     }),
     // Extending the root ESLint config should be the first value in the
     // app's local ESLint config extends array.
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     updateJsonInTree(`${options.projectRoot}/.eslintrc`, (json) => {
       json.extends.unshift(json.extends.pop());
       return json;
@@ -155,6 +161,8 @@ function addEsLint(options: NormalizedSchema): Rule {
 
 function addJest(options: NormalizedSchema): Rule {
   return chain([
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     addPackageWithInit('@nrwl/jest'),
     externalSchematic('@nrwl/jest', 'jest-project', {
       project: options.projectName,
@@ -164,6 +172,8 @@ function addJest(options: NormalizedSchema): Rule {
       testEnvironment: 'jsdom',
       babelJest: false,
     }),
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     updateJsonInTree(`${options.projectRoot}/tsconfig.spec.json`, (json) => {
       json.include = json.include.filter((pattern) => !/\.jsx?$/.test(pattern));
       json.compilerOptions = {
@@ -198,6 +208,8 @@ function addJest(options: NormalizedSchema): Rule {
       tree.overwrite(`${options.projectRoot}/jest.config.js`, content);
       return tree;
     },
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     addDepsToPackageJson(
       {},
       {
@@ -214,6 +226,8 @@ function addJest(options: NormalizedSchema): Rule {
 
 function addCypress(options: NormalizedSchema): Rule {
   return chain([
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     addPackageWithInit('@nrwl/cypress'),
     externalSchematic('@nrwl/cypress', 'cypress-project', {
       project: options.projectName,
@@ -260,6 +274,8 @@ function addPostInstall() {
 export default function (options: ApplicationSchematicSchema): Rule {
   const normalizedOptions = normalizeOptions(options);
   return chain([
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     updateWorkspace((workspace) => {
       const { targets } = workspace.projects.add({
         name: normalizedOptions.projectName,
@@ -301,6 +317,8 @@ export default function (options: ApplicationSchematicSchema): Rule {
         },
       });
     }),
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     addProjectToNxJsonInTree(normalizedOptions.projectName, {
       tags: normalizedOptions.parsedTags,
     }),
@@ -310,7 +328,11 @@ export default function (options: ApplicationSchematicSchema): Rule {
     options.e2eTestRunner === 'cypress'
       ? addCypress(normalizedOptions)
       : noop(),
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     addPostInstall(),
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     addDepsToPackageJson(
       {
         vue: '^2.6.11',
@@ -325,6 +347,8 @@ export default function (options: ApplicationSchematicSchema): Rule {
       },
       true
     ),
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     formatFiles(options),
   ]);
 }

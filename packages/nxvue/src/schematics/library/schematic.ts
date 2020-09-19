@@ -87,6 +87,8 @@ function addFiles(options: NormalizedSchema): Rule {
 
 function addJest(options: NormalizedSchema): Rule {
   return chain([
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     addPackageWithInit('@nrwl/jest'),
     externalSchematic('@nrwl/jest', 'jest-project', {
       project: options.projectName,
@@ -96,6 +98,8 @@ function addJest(options: NormalizedSchema): Rule {
       testEnvironment: 'jsdom',
       babelJest: false,
     }),
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     updateJsonInTree(`${options.projectRoot}/tsconfig.spec.json`, (json) => {
       json.include = json.include.filter((pattern) => !/\.jsx?$/.test(pattern));
       json.compilerOptions = {
@@ -130,6 +134,8 @@ function addJest(options: NormalizedSchema): Rule {
       tree.overwrite(`${options.projectRoot}/jest.config.js`, content);
       return tree;
     },
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     addDepsToPackageJson(
       {},
       {
@@ -175,6 +181,8 @@ function getEslintConfig(options: NormalizedSchema) {
 
 function addEsLint(options: NormalizedSchema): Rule {
   return chain([
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     updateWorkspace((workspace) => {
       const { targets } = workspace.projects.get(options.projectName);
       targets.add({
@@ -186,11 +194,15 @@ function addEsLint(options: NormalizedSchema): Rule {
         ),
       });
     }),
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     addLintFiles(options.projectRoot, Linter.EsLint, {
       localConfig: getEslintConfig(options),
     }),
     // Extending the root ESLint config should be the first value in the
     // app's local ESLint config extends array.
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     updateJsonInTree(`${options.projectRoot}/.eslintrc`, (json) => {
       json.extends.unshift(json.extends.pop());
       return json;
@@ -224,6 +236,8 @@ function addPostInstall() {
 
 function addPublishable(options: NormalizedSchema) {
   return chain([
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     updateWorkspace((workspace) => {
       workspace.projects.get(options.projectName).targets.add({
         name: 'build',
@@ -248,6 +262,8 @@ function addPublishable(options: NormalizedSchema) {
 
 function updateTsConfig(options: NormalizedSchema): Rule {
   return chain([
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     (host: Tree, context: SchematicContext) => {
       const nxJson = readJsonInTree<NxJson>(host, 'nx.json');
       return updateJsonInTree('tsconfig.base.json', (json) => {
@@ -258,6 +274,8 @@ function updateTsConfig(options: NormalizedSchema): Rule {
           `${options.projectRoot}/src/index.ts`,
         ];
         return json;
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore
       })(host, context);
     },
   ]);
@@ -266,6 +284,8 @@ function updateTsConfig(options: NormalizedSchema): Rule {
 export default function (options: LibrarySchematicSchema): Rule {
   const normalizedOptions = normalizeOptions(options);
   return chain([
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     updateWorkspace((workspace) => {
       workspace.projects.add({
         name: normalizedOptions.projectName,
@@ -275,6 +295,8 @@ export default function (options: LibrarySchematicSchema): Rule {
         architect: {},
       });
     }),
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     addProjectToNxJsonInTree(normalizedOptions.projectName, {
       tags: normalizedOptions.parsedTags,
     }),
@@ -283,7 +305,11 @@ export default function (options: LibrarySchematicSchema): Rule {
     addEsLint(normalizedOptions),
     options.publishable ? addPublishable(normalizedOptions) : noop(),
     options.unitTestRunner === 'jest' ? addJest(normalizedOptions) : noop(),
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     addPostInstall(),
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     addDepsToPackageJson(
       {
         vue: '^2.6.11',
@@ -297,6 +323,8 @@ export default function (options: LibrarySchematicSchema): Rule {
       },
       true
     ),
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     formatFiles(options),
   ]);
 }

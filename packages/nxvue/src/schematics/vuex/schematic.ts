@@ -96,7 +96,11 @@ export default function (options: VuexSchematicSchema): Rule {
   return chain([
     addStoreConfig(options),
     addStoreToMain(options),
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     addDepsToPackageJson({ vuex: '^3.4.0' }, {}, true),
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     formatFiles(options),
   ]);
 }
