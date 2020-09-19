@@ -23,7 +23,9 @@
     "update": "nx migrate latest",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "prepublish": "yarn build nxelectron && yarn build nxvue",
+    "publish": "npm publish --access public ./dist/packages/nxelectron && npm publish --access public ./dist/packages/nxvue"
   },
   "private": true,
   "dependencies": {},
