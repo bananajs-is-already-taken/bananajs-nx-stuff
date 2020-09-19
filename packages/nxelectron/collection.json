@@ -1,0 +1,12 @@
+{
+  "$schema": "../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "name": "nxelectron",
+  "version": "0.0.1",
+  "schematics": {
+    "nxelectron": {
+      "factory": "./src/schematics/nxelectron/schematic",
+      "schema": "./src/schematics/nxelectron/schema.json",
+      "description": "nxelectron schematic"
+    }
+  }
+}
