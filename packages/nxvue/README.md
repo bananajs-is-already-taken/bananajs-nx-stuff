@@ -1,3 +1,5 @@
+# Originally made by [BuckyMaler](https://github.com/BuckyMaler), [ZachJW34](https://github.com/ZachJW34), [JordyLangen](https://github.com/JordyLangen).
+
 # Nx Plus Vue
 
 > First class support for [Vue](https://vuejs.org/) in your [Nx](https://nx.dev/) workspace.
